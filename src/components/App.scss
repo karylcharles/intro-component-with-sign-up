@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    // Primary
+    --red: hsl(0, 100%, 74%); 
+    --green: hsl(154, 59%, 51%);
+
+    // Accent
+    --blue: hsl(248, 32%, 49%);
+
+    // Neutral
+    --dark-blue: hsl(249, 10%, 26%); 
+    --grayish-blue: hsl(246, 25%, 77%);
+}
+
+html{
+    font-size: 67.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../images/bg-intro-desktop.png'), linear-gradient(var(--red), var(--red));
+}
+
+.App{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding: 0 14rem;
+    gap: 4rem;
+
+    &-titleContent{
+        color: #fff;
+
+        &__title{
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 2.2rem;
+        }
+
+        &__sub{
+            font-size: 1.47rem;
+
+        }
+    }
+
+    &-userInput{
+
+        &__offer-box{
+            background-color: var(--blue);
+            padding: 1.4rem 0;
+            width: 100%;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 8px 0 0 hsla(249, 10%, 26%, 0.25);
+            margin-bottom: 2.2rem;
+
+            &__text{
+                font-weight: 600;
+                font-size: 1.5rem;
+                color: #fff;
+
+                & span{
+                    font-weight: 400;
+                    color: #eee;
+                }
+            }
+        }
+
+        &__form{
+            background-color: #fff;
+            padding: 4rem;
+            border-radius: 8px;
+            box-shadow: 0 7px 0 0 hsla(249, 10%, 26%, 0.2);
+
+            & div:not(:last-child){
+                margin-bottom: 1.8rem;
+            }
+
+            & input{
+                display: block;
+                width: 100%;
+                padding: 1.6rem 2.2rem;
+                border-radius: 5px;
+                border: 1px solid lightgrey;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+            }
+
+            & input::placeholder{
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+            }
+
+            & input:focus{
+                outline: 1px solid var(--blue);
+                border: 1px solid var(--blue);
+            }
+
+            & button{
+                width: 100%;
+                background-color: var(--green);
+                border-radius: 5px;
+                padding: 1.5rem 0;
+                border: none;
+                box-shadow: 0 4px 0 0 hsl(154, 59%, 41%);
+                color: #fff;
+                font-weight: 600;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.4rem;
+                word-spacing: 2px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                margin-bottom: 1.6rem;
+            }
+
+            & button:hover{
+                background-color: hsl(154, 59%, 61%);
+            }
+
+            & button:active{
+                box-shadow: none;
+                position: relative;
+                top: 4px;
+            }
+
+            &-terms{
+                color: var(--grayish-blue);
+                font-size: 1.05rem;
+                text-align: center;
+                
+
+                & span{
+                    color: var(--red);
+                    font-weight: 700;
+                    font-size: 1.15;
+                }
+            }
+        }
+    }
+}
+
+.error{
+    background-image: url('../images/icon-error.svg');
+    background-repeat: no-repeat;
+    background-position: right 25px center;
+}
+
+
+.emailError::placeholder{
+    color: var(--red);    
+}
+
+.errorMsg{
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--red);
+    position: relative;
+    left: 65%;
+    top: 3px;
+    font-weight: 500;
+}
+
+.hide{
+    display: none;
+}
+
+@media (max-width: 375px){
+    .App{
+        grid-template-columns: 1fr;
+        padding: 5rem 1.5rem;
+        height: 100%;
+
+        &-titleContent{
+    
+            &__title{
+                font-size: 2.8rem;
+                text-align: center;
+            }
+    
+            &__sub{
+                font-size: 1.6rem;
+                text-align: center;
+            }
+        }
+
+        &-userInput{
+
+            &__offer-box{
+                    
+                &__text{
+                    width: 60%;
+                    margin: 0 auto;
+    
+                    & span{
+                        
+                    }
+                }
+            }
+
+            &__form{
+                padding: 1.8rem;
+            }
+        }
+    }
+
+    .errorMsg{
+        transform: translate(-50px, -5px);
+        display: inline-block;
+    }
+
+    .App-userInput__form-terms{
+        font-size: 12px;
+    }
+}
